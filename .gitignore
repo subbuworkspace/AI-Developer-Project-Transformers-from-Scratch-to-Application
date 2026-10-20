@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+myenv/
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+.cache/
+huggingface/
+*.pt
+*.bin
+*.safetensors
+""",
+".env.example": """# Model defaults are configured in transformer_app.py.
+# No API key is required for public Hugging Face models.
+HF_HOME=.cache/huggingface
