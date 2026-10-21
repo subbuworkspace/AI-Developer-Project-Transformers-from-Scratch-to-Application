@@ -1,0 +1,31 @@
+MIT License
+
+Copyright (c) 2026
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+"""
+}
+
+for rel, content in files.items():
+    (root / rel).write_text(textwrap.dedent(content).lstrip(), encoding="utf-8")
+
+zip_path = Path("/mnt/data/transformer-ai-developer-project.zip")
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+    for p in root.rglob("*"):
+        if p.is_file():
+            zf.write(p, p.relative_to(root.parent))
+
+print(f"Created {zip_path}")
+print(f"Included {sum(1 for p in root.rglob('*') if p.is_file())} files")
