@@ -1,0 +1,21 @@
+Illustrative output (exact results vary by model version and environment)
+=======================================================================
+
+Input:
+"The service was excellent and the staff were helpful."
+
+Expected type of output:
+Label: POSITIVE
+Score: model-generated confidence score between 0 and 1
+
+Input:
+"The delivery was late and the product was damaged."
+
+Expected type of output:
+Label: NEGATIVE
+Score: model-generated confidence score between 0 and 1
+
+Attention demo:
+Run `python attention_demo.py` to print a small attention-weight matrix and the weighted value output.
+
+These are examples of expected behavior, not captured benchmark results.
